@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proj/adminLogin/AdminLoginPage.dart';
+import 'package:proj/newUser/nUser.dart';
 
 import 'Button.dart';
 import 'InputField.dart';
@@ -33,7 +34,10 @@ class InputWrapper extends StatelessWidget {
               children: [
                 TextButton(
                   child: Text('New User'),
-                  onPressed: () {},
+                  onPressed: () {Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UserForm()));},
                 ),
                 VerticalDivider(
                   thickness: 1,

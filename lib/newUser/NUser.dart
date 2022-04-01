@@ -1,8 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import '../Header.dart';
-
-
 
 class UserForm extends StatefulWidget {
   @override
@@ -25,23 +25,51 @@ class _UserFormState extends State<UserForm> {
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 80,),
-            Header(isNewUser: true,),
-            Expanded(child: Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60),
-                    topRight: Radius.circular(60),
-                  )
+            SizedBox(
+              height: 80,
+            ),
+            Header(
+              isNewUser: true,
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(60),
+                      topRight: Radius.circular(60),
+                    )),
+                child: Container(
+                  padding: const EdgeInsets.all(30),
+                  child: Form(
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(hintText: 'Name'),
+                        ),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          decoration: const InputDecoration(hintText: 'Email'),
+                        ),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(hintText: 'Password'),
+                        ),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(hintText: 'Society Name'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              child: Container(),
-            ))
+            )
           ],
         ),
       ),
-    
-      
     );
   }
 }
