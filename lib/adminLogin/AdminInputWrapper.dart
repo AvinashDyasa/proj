@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'AdminButton.dart';
+import '../Button.dart';
 import 'AdminInputField.dart';
 
 class InputWrapper extends StatelessWidget {

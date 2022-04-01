@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+
 import '../Header.dart';
-import 'AdminInputWrapper.dart';
+import 'NUInputWrapper.dart';
 
-
-class AdminLoginPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +21,7 @@ class AdminLoginPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(height: 80,),
-            Header(isAdminLogin: true,),
+            Header(),
             Expanded(child: Container(
               decoration: BoxDecoration(
                   color: Colors.white,

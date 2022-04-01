@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget{
+  bool isAdminLogin;
+  bool isNewUser;
+  bool isForgotPassword;
+  Button({this.isAdminLogin=false, this.isForgotPassword=false, this.isNewUser=false});
   @override
   Widget build(BuildContext context) {
 
@@ -12,7 +16,17 @@ class Button extends StatelessWidget{
         borderRadius: BorderRadius.circular(10),
       ),
       child: Center(
-        child: Text("Login",style: TextStyle(
+        child: isForgotPassword ? const Text("Reset",style: TextStyle(
+          color: Colors.white,
+          fontSize: 15,
+          fontWeight: FontWeight.bold
+        ),): 
+        isNewUser ? const Text("Sign Up",style: TextStyle(
+          color: Colors.white,
+          fontSize: 15,
+          fontWeight: FontWeight.bold
+        ),):
+        const Text("Login",style: TextStyle(
           color: Colors.white,
           fontSize: 15,
           fontWeight: FontWeight.bold

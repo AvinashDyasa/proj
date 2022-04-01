@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../Header.dart';
-import 'AdminInputWrapper.dart';
 
 
-class AdminLoginPage extends StatelessWidget {
+
+class UserForm extends StatefulWidget {
+  @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +26,7 @@ class AdminLoginPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(height: 80,),
-            Header(isAdminLogin: true,),
+            Header(isNewUser: true,),
             Expanded(child: Container(
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -30,11 +35,13 @@ class AdminLoginPage extends StatelessWidget {
                     topRight: Radius.circular(60),
                   )
               ),
-              child: InputWrapper(),
+              child: Container(),
             ))
           ],
         ),
       ),
+    
+      
     );
   }
 }

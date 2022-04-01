@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:proj/adminLogin/AdminLoginPage.dart';
 
-import 'Button.dart';
-import 'InputField.dart';
-
+import '../Button.dart';
+import 'NUInputField.dart';
 
 class InputWrapper extends StatelessWidget {
   @override
@@ -23,7 +22,7 @@ class InputWrapper extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          Button(),
+          Button(isNewUser: true,),
           SizedBox(
             height: 40,
           ),
