@@ -12,31 +12,45 @@ class InputWrapper extends StatelessWidget {
       padding: EdgeInsets.all(30),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 40,),
+          SizedBox(
+            height: 40,
+          ),
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10)
-            ),
+                color: Colors.white, borderRadius: BorderRadius.circular(10)),
             child: InputField(),
           ),
-          SizedBox(height: 40,),
+          SizedBox(
+            height: 40,
+          ),
           Button(),
-          SizedBox(height: 40,),
+          SizedBox(
+            height: 40,
+          ),
           IntrinsicHeight(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [TextButton(
-                child:
-                Text('New User'),
-                onPressed: (){},),
-                VerticalDivider(thickness: 1,color: Colors.black,),
+              children: [
+                TextButton(
+                  child: Text('New User'),
+                  onPressed: () {},
+                ),
+                VerticalDivider(
+                  thickness: 1,
+                  color: Colors.black,
+                ),
                 TextButton(
                   child: Text('Admin Login'),
-                  onPressed: ()=>AdminLoginPage,),],
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AdminLoginPage()));
+                  },
+                ),
+              ],
             ),
           )
-          
         ],
       ),
     );
