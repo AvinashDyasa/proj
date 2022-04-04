@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proj/adminLogin/AdminLoginPage.dart';
 import 'package:proj/newUser/nUser.dart';
+import 'package:proj/forgotPassword/FPLoginPage.dart';
 
 import 'Button.dart';
 import 'InputField.dart';
@@ -12,6 +13,7 @@ class InputWrapper extends StatelessWidget {
       padding: EdgeInsets.all(30),
       child: Column(
         children: <Widget>[
+          // ignore: prefer_const_constructors
           SizedBox(
             height: 40,
           ),
@@ -21,7 +23,21 @@ class InputWrapper extends StatelessWidget {
             child: InputField(),
           ),
           SizedBox(
-            height: 40,
+            height: 10,
+          ),
+          TextButton(
+            child: const Text('Forgot Password'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FPLoginPage(),
+                ),
+              );
+            },
+          ),
+          SizedBox(
+            height: 20,
           ),
           Button(),
           SizedBox(
@@ -34,8 +50,12 @@ class InputWrapper extends StatelessWidget {
                 TextButton(
                   child: Text('New User'),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => UserForm()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => UserForm(),
+                      ),
+                    );
                   },
                 ),
                 // ignore: prefer_const_constructors
@@ -47,9 +67,11 @@ class InputWrapper extends StatelessWidget {
                   child: Text('Admin Login'),
                   onPressed: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AdminLoginPage()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdminLoginPage(),
+                      ),
+                    );
                   },
                 ),
               ],
