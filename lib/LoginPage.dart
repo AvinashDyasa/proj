@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'Header.dart';
@@ -19,16 +21,18 @@ class LoginPage extends StatelessWidget {
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 80,),
+            SizedBox(
+              height: 80,
+            ),
             Header(),
-            Expanded(child: Container(
+            Expanded(
+                child: Container(
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(60),
                     topRight: Radius.circular(60),
-                  )
-              ),
+                  )),
               child: InputWrapper(),
             ))
           ],

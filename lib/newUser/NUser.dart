@@ -11,6 +11,8 @@ class UserForm extends StatefulWidget {
 
 class _UserFormState extends State<UserForm> {
   @override
+  String dropdownvalue = "Owner";
+  var items = ['Owner', 'Admin'];
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -45,21 +47,55 @@ class _UserFormState extends State<UserForm> {
                     child: Column(
                       children: [
                         TextFormField(
-                          decoration: const InputDecoration(hintText: 'Name'),
+                          decoration: const InputDecoration(labelText: 'Name'),
                         ),
                         SizedBox(height: 10),
                         TextFormField(
-                          decoration: const InputDecoration(hintText: 'Email'),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(hintText: 'Password'),
+                          decoration: const InputDecoration(labelText: 'Email'),
                         ),
                         SizedBox(height: 10),
                         TextFormField(
                           decoration:
-                              const InputDecoration(hintText: 'Society Name'),
+                              const InputDecoration(labelText: 'Password'),
+                        ),
+                        SizedBox(height: 10),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(labelText: 'Society Name'),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        DropdownButton(
+                          value: dropdownvalue,
+                          items: items.map((String items) {
+                            return DropdownMenuItem(
+                              value: items,
+                              child: Text(items),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownvalue = newValue!;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Wing'),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(labelText: 'Flat no.'),
+                        ),
+                        ElevatedButton(
+                          onPressed: null,
+                          child: Text('Submit'),
                         ),
                       ],
                     ),

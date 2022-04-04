@@ -5,7 +5,6 @@ import 'package:proj/newUser/nUser.dart';
 import 'Button.dart';
 import 'InputField.dart';
 
-
 class InputWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,11 +33,12 @@ class InputWrapper extends StatelessWidget {
               children: [
                 TextButton(
                   child: Text('New User'),
-                  onPressed: () {Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => UserForm()));},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => UserForm()));
+                  },
                 ),
+                // ignore: prefer_const_constructors
                 VerticalDivider(
                   thickness: 1,
                   color: Colors.black,
