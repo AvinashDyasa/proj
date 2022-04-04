@@ -27,6 +27,17 @@ class InputField extends StatelessWidget {
                 border: InputBorder.none),
           ),
         ),
+        Container(
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: Colors.grey.shade200))),
+          child: TextField(
+            decoration: InputDecoration(
+                labelText: "Re-Enter your password",
+                labelStyle: TextStyle(color: Colors.grey.shade400),
+                border: InputBorder.none),
+          ),
+        ),
       ],
     );
   }
