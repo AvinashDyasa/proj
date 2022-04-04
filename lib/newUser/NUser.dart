@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:proj/homepage/homePage.dart';
 
 import '../Header.dart';
 
@@ -93,9 +94,14 @@ class _UserFormState extends State<UserForm> {
                           decoration:
                               const InputDecoration(labelText: 'Flat no.'),
                         ),
-                        ElevatedButton(
-                          onPressed: null,
+                        TextButton(
                           child: Text('Submit'),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Homepage()));
+                          },
                         ),
                       ],
                     ),
