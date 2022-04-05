@@ -22,7 +22,6 @@ class InputWrapper extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          Button(isNewUser: true,),
           SizedBox(
             height: 40,
           ),

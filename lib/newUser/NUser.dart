@@ -12,6 +12,21 @@ class UserForm extends StatefulWidget {
 }
 
 class _UserFormState extends State<UserForm> {
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _societyNameContoller = TextEditingController();
+  TextEditingController _wingController = TextEditingController();
+  TextEditingController _flatNoController = TextEditingController();
+
+  bool _autoValidator = false;
+
+  static String validateEmptyField(
+      {required String text, required String fieldName}) {
+    return text.isEmpty ? "$fieldName cannot be empty" : "";
+  }
+
   @override
   String dropdownvalue = "Owner";
   var items = ['Owner', 'Admin'];
@@ -46,57 +61,130 @@ class _UserFormState extends State<UserForm> {
                 child: Container(
                   padding: const EdgeInsets.all(30),
                   child: Form(
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          decoration: const InputDecoration(labelText: 'Name'),
+                    autovalidateMode: _autoValidator
+                        ? AutovalidateMode.always
+                        : AutovalidateMode.disabled,
+                    child: SingleChildScrollView(
+                      child: Expanded(
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              controller: _firstNameController,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "First Name",
+                                    text: _firstNameController.text);
+                              },
+                              decoration: const InputDecoration(
+                                  labelText: 'First Name'),
+                            ),
+                            SizedBox(height: 10),
+                            TextFormField(
+                              controller: _lastNameController,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "Last Name",
+                                    text: _firstNameController.text);
+                              },
+                              decoration:
+                                  const InputDecoration(labelText: 'Last Name'),
+                            ),
+                            SizedBox(height: 10),
+                            TextFormField(
+                              controller: _emailController,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "Email",
+                                    text: _firstNameController.text);
+                              },
+                              decoration:
+                                  const InputDecoration(labelText: 'Email'),
+                            ),
+                            SizedBox(height: 10),
+                            TextFormField(
+                              controller: _passwordController,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "Password",
+                                    text: _firstNameController.text);
+                              },
+                              decoration:
+                                  const InputDecoration(labelText: 'Password'),
+                            ),
+                            SizedBox(height: 10),
+                            TextFormField(
+                              controller: _societyNameContoller,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "Society Name",
+                                    text: _firstNameController.text);
+                              },
+                              decoration: const InputDecoration(
+                                  labelText: 'Society Name'),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Container(
+                              width: double.infinity,
+                              child: DropdownButton(
+                                value: dropdownvalue,
+                                items: items.map((String items) {
+                                  return DropdownMenuItem(
+                                    value: items,
+                                    child: Text(items),
+                                  );
+                                }).toList(),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownvalue = newValue!;
+                                  });
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              controller: _wingController,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "Wing",
+                                    text: _firstNameController.text);
+                              },
+                              decoration:
+                                  const InputDecoration(labelText: 'Wing'),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            TextFormField(
+                              controller: _flatNoController,
+                              validator: (val) {
+                                return validateEmptyField(
+                                    fieldName: "Flat no.",
+                                    text: _firstNameController.text);
+                              },
+                              decoration:
+                                  const InputDecoration(labelText: 'Flat no.'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  _autoValidator = true;
+                                });
+                              },
+                              child: Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          decoration: const InputDecoration(labelText: 'Email'),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Password'),
-                        ),
-                        SizedBox(height: 10),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Society Name'),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        DropdownButton(
-                          value: dropdownvalue,
-                          items: items.map((String items) {
-                            return DropdownMenuItem(
-                              value: items,
-                              child: Text(items),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              dropdownvalue = newValue!;
-                            });
-                          },
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: const InputDecoration(labelText: 'Wing'),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Flat no.'),
-                        ),
-                        Button(isNewUser: true),
-                      ],
+                      ),
                     ),
                   ),
                 ),
