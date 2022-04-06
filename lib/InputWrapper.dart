@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:proj/adminLogin/AdminLoginPage.dart';
+import 'package:proj/homePage/HomePage.dart';
 import 'package:proj/newUser/nUser.dart';
 import 'package:proj/forgotPassword/FPLoginPage.dart';
-
-import 'Button.dart';
-import 'InputField.dart';
 
 class InputWrapper extends StatefulWidget {
   @override
@@ -14,8 +14,10 @@ class InputWrapper extends StatefulWidget {
 }
 
 class _InputWrapperState extends State<InputWrapper> {
+  final _formKey = GlobalKey<FormState>();
   final _textController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _auth = FirebaseAuth.instance;
 
   bool _validator = false;
   bool _pValidator = false;
@@ -44,6 +46,9 @@ class _InputWrapperState extends State<InputWrapper> {
                   ),
                   child: TextField(
                     controller: _textController,
+                    onSaved: (val) {
+                      _textController.text = val!;
+                    },
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       errorText: _validator ? 'Email cannont be empty' : null,
@@ -114,6 +119,7 @@ class _InputWrapperState extends State<InputWrapper> {
                     ? _pValidator = true
                     : _pValidator = false;
               });
+              signIn(_textController.text, _passwordController.text);
             },
             child: Text(
               "Login",
@@ -163,5 +169,21 @@ class _InputWrapperState extends State<InputWrapper> {
         ],
       ),
     );
+  }
+
+  void signIn(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      await _auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((uid) => {
+                Fluttertoast.showToast(msg: "Login Succesful"),
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: ((context) => Homepage())),
+                ),
+              })
+          .catchError((e) {
+        Fluttertoast.showToast(msg: e!.message);
+      });
+    }
   }
 }
