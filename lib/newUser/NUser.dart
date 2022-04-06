@@ -93,6 +93,11 @@ class _UserFormState extends State<UserForm> {
                             TextFormField(
                               controller: _emailController,
                               validator: (val) {
+                                if (!RegExp(
+                                        '^[a-zA-z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]')
+                                    .hasMatch(val!)) {
+                                  return ('Please enter a valid email');
+                                }
                                 return validateEmptyField(
                                     fieldName: "Email",
                                     text: _firstNameController.text);
