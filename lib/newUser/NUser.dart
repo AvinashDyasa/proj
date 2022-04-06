@@ -107,8 +107,13 @@ class _UserFormState extends State<UserForm> {
                             ),
                             SizedBox(height: 10),
                             TextFormField(
+                              obscureText: true,
                               controller: _passwordController,
                               validator: (val) {
+                                RegExp regex = new RegExp(r'^.{6,}$');
+                                if (!regex.hasMatch(val!)) {
+                                  return ("Please enter valid password(Min. 6 Char. long)");
+                                }
                                 return validateEmptyField(
                                     fieldName: "Password",
                                     text: _firstNameController.text);
