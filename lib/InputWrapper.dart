@@ -9,6 +9,8 @@ import 'package:proj/newUser/nUser.dart';
 import 'package:proj/forgotPassword/FPLoginPage.dart';
 
 class InputWrapper extends StatefulWidget {
+  const InputWrapper({Key? key}) : super(key: key);
+
   @override
   State<InputWrapper> createState() => _InputWrapperState();
 }
