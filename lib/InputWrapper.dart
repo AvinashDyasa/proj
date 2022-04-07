@@ -44,7 +44,7 @@ class _InputWrapperState extends State<InputWrapper> {
                       bottom: BorderSide(color: Colors.grey.shade200),
                     ),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: _textController,
                     onSaved: (val) {
                       _textController.text = val!;
@@ -71,8 +71,11 @@ class _InputWrapperState extends State<InputWrapper> {
                       bottom: BorderSide(color: Colors.grey.shade200),
                     ),
                   ),
-                  child: TextField(
+                  child: TextFormField(
                     controller: _passwordController,
+                    onSaved: (val) {
+                      _passwordController.text = val!;
+                    },
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       errorText:
