@@ -21,6 +21,7 @@ class _InputWrapperState extends State<InputWrapper> {
 
   bool _validator = false;
   bool _pValidator = false;
+  bool _rpValidator = false;
 
   @override
   Widget build(BuildContext context) {
