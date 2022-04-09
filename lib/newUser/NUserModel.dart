@@ -4,6 +4,7 @@ class UserModel {
   String? firstName;
   String? lastName;
   String? societyName;
+  String? userType;
   String? wing;
   String? flatNo;
 
@@ -13,6 +14,7 @@ class UserModel {
       this.firstName,
       this.lastName,
       this.societyName,
+      this.userType,
       this.wing,
       this.flatNo});
 
@@ -24,6 +26,7 @@ class UserModel {
       firstName: map['firstName'],
       lastName: map['lastName'],
       societyName: map['societyName'],
+      userType: map['userType'],
       wing: map['wing'],
       flatNo: map['flatNo'],
     );
@@ -37,6 +40,7 @@ class UserModel {
       'firstName': firstName,
       'lastName': lastName,
       'societyName': societyName,
+      'userType': userType,
       'wing': wing,
       'flatNo': flatNo,
     };
