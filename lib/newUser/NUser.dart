@@ -244,6 +244,20 @@ class _UserFormState extends State<UserForm> {
           )),
     );
 
+    final userType = DropdownButton(
+        value: dropdownvalue,
+        items: items.map((String items) {
+          return DropdownMenuItem(
+            value: items,
+            child: Text(items),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            dropdownvalue = newValue!;
+          });
+        });
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -301,10 +315,16 @@ class _UserFormState extends State<UserForm> {
                                 SizedBox(height: 20),
                                 societyNmaeField,
                                 SizedBox(height: 20),
-                                wingField,
+                                userType,
                                 SizedBox(height: 20),
-                                flatNumberField,
-                                SizedBox(height: 20),
+                                if (dropdownvalue == 'Admin')
+                                  Container()
+                                else ...[
+                                  wingField,
+                                  SizedBox(height: 20),
+                                  flatNumberField,
+                                  SizedBox(height: 20),
+                                ],
                                 signUpButton,
                                 SizedBox(height: 15),
                               ],
@@ -377,6 +397,7 @@ class _UserFormState extends State<UserForm> {
     userModel.firstName = _firstNameController.text;
     userModel.lastName = _lastNameController.text;
     userModel.societyName = _societyNameContoller.text;
+    userModel.userType = dropdownvalue;
     userModel.wing = _wingController.text;
     userModel.flatNo = _flatNoController.text;
 
