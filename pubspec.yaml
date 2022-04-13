@@ -38,6 +38,8 @@ dependencies:
   firebase_auth: ^3.3.12
   cloud_firestore: ^3.1.11
   fluttertoast: ^8.0.9
+  date_time_picker: ^2.1.0
+  time_range: ^1.0.2
 
 dev_dependencies:
   flutter_test:

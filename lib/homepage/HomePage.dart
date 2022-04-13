@@ -13,16 +13,17 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  final List _items = [Feed, BookingScreen(), BillingScreen()];
+  final List _items = [Feed(), BookingScreen(), BillingScreen()];
+  final List _labelName = ['Home', 'Book', 'Bill'];
+  final List _icons = [Icons.home, Icons.book, Icons.receipt];
   int _currentIndex = 0;
   final PageController _pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-          showUnselectedLabels: false,
-          // unselectedItemColor: Colors.redAccent,
-          // selectedItemColor: (Colors.blueAccent),
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: (Colors.blue),
           currentIndex: _currentIndex,
           onTap: (int value) {
             onBottomBarClicked(context, value);
@@ -31,10 +32,10 @@ class _HomepageState extends State<Homepage> {
               _items.length,
               (index) => BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.add_task_sharp,
-                    color: _currentIndex == index ? Colors.red : Colors.blue,
+                    _icons[index],
+                    color: _currentIndex == index ? Colors.blue : Colors.grey,
                   ),
-                  label: 'Hi'))),
+                  label: _labelName[index]))),
       // appBar: AppBar(
       //   backgroundColor: Colors.cyan.shade500,
       //   title: const Text('Homepage'),
