@@ -12,6 +12,8 @@ class BookingScreen extends StatefulWidget {
 
 class _BookingScreenState extends State<BookingScreen> {
   DateTime? date;
+  String dropdownvalue = 'Club House';
+  var items = ['Club House', 'Lawn', 'Theatre'];
 
   String getText() {
     if (date == null) {
@@ -24,6 +26,19 @@ class _BookingScreenState extends State<BookingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final amenities = DropdownButton(
+        value: dropdownvalue,
+        items: items.map((String items) {
+          return DropdownMenuItem(
+            value: items,
+            child: Text(items),
+          );
+        }).toList(),
+        onChanged: (String? newValue) {
+          setState(() {
+            dropdownvalue = newValue!;
+          });
+        });
     final book = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
@@ -39,6 +54,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
           )),
     );
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -47,6 +63,8 @@ class _BookingScreenState extends State<BookingScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            amenities,
+            SizedBox(height: 1),
             ButtonHeaderWidget(
               title: 'Date',
               text: getText(),
@@ -75,6 +93,9 @@ class _BookingScreenState extends State<BookingScreen> {
               timeStep: 30,
               timeBlock: 30,
               onRangeCompleted: (range) => setState(() => print(range)),
+            ),
+            SizedBox(
+              height: 10,
             ),
             book
           ],

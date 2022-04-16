@@ -70,7 +70,7 @@ class _BillingScreenState extends State<BillingScreen> {
       borderRadius: BorderRadius.circular(30),
       color: Colors.blueAccent,
       child: MaterialButton(
-          padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {},
           child: const Text(
@@ -85,7 +85,7 @@ class _BillingScreenState extends State<BillingScreen> {
       borderRadius: BorderRadius.circular(30),
       color: Colors.blueAccent,
       child: MaterialButton(
-          padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+          padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {},
           child: const Text(
@@ -106,11 +106,11 @@ class _BillingScreenState extends State<BillingScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Year:",
                   style: TextStyle(fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 yearPicker,
@@ -119,7 +119,19 @@ class _BillingScreenState extends State<BillingScreen> {
             const SizedBox(
               height: 20,
             ),
-            monthPicker,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Month:",
+                  style: const TextStyle(fontSize: 20),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                monthPicker,
+              ],
+            ),
             const SizedBox(
               height: 20,
             ),
