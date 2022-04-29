@@ -1,12 +1,13 @@
-
-
 import 'package:flutter/material.dart';
 
-class Header extends StatelessWidget{
+class Header extends StatelessWidget {
   bool isAdminLogin;
   bool isNewUser;
   bool isForgotPassword;
-  Header({this.isAdminLogin=false, this.isForgotPassword=false, this.isNewUser=false});
+  Header(
+      {this.isAdminLogin = false,
+      this.isForgotPassword = false,
+      this.isNewUser = false});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,14 +16,29 @@ class Header extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Center(
-            child: isAdminLogin ? Text("Admin Login", style: TextStyle(color: Colors.white, fontSize: 40),):
-            isNewUser ? Text("New Login", style: TextStyle(color: Colors.white, fontSize: 40)):
-            isForgotPassword ?Text("Forgot Password", style: TextStyle(color: Colors.white, fontSize: 40)):
-            Text("Login", style: TextStyle(color: Colors.white, fontSize: 40)),
+            child: isAdminLogin
+                ? Text(
+                    "Admin Login",
+                    style: TextStyle(color: Colors.white, fontSize: 40),
+                  )
+                : isNewUser
+                    ? Text("New Login",
+                        style: TextStyle(color: Colors.white, fontSize: 40))
+                    : isForgotPassword
+                        ? Text("Forgot Password",
+                            style: TextStyle(color: Colors.white, fontSize: 40))
+                        : Text("Login",
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 40)),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Center(
-            child: Text("Welcome to Inside Android", style: TextStyle(color: Colors.white, fontSize: 18),),
+            child: Text(
+              "ComCon",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
           )
         ],
       ),

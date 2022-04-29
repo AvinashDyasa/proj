@@ -110,7 +110,8 @@ class _FeedState extends State<Feed> {
                             return Container(
                                 width: MediaQuery.of(context).size.width,
                                 margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(color: Colors.amber),
+                                decoration: BoxDecoration(
+                                    color: Color.fromARGB(255, 255, 241, 199)),
                                 child: Text(
                                   'there are no notices',
                                   style: TextStyle(fontSize: 16.0),
