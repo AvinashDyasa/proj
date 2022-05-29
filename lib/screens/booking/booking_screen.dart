@@ -42,7 +42,7 @@ class _BookingScreenState extends State<BookingScreen> {
     final book = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.blueAccent,
+      color: Colors.green,
       child: MaterialButton(
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
@@ -56,6 +56,7 @@ class _BookingScreenState extends State<BookingScreen> {
     );
 
     return Scaffold(
+      backgroundColor: Colors.green.shade100,
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: const Text('Book Amenities'),
@@ -87,7 +88,7 @@ class _BookingScreenState extends State<BookingScreen> {
               activeTextStyle: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.white),
               backgroundColor: Colors.transparent,
-              activeBackgroundColor: Colors.orange,
+              activeBackgroundColor: Colors.green,
               firstTime: const TimeOfDay(hour: 00, minute: 00),
               lastTime: const TimeOfDay(hour: 23, minute: 50),
               timeStep: 30,

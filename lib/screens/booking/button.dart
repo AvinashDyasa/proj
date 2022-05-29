@@ -31,18 +31,21 @@ class ButtonWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) => ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          minimumSize: Size.fromHeight(40),
-          primary: Colors.white,
-        ),
-        child: FittedBox(
-          child: Text(
-            text,
-            style: TextStyle(fontSize: 20, color: Colors.black),
+  Widget build(BuildContext context) => SizedBox(
+        width: 200,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            minimumSize: Size.fromHeight(40),
+            primary: Colors.green,
           ),
+          child: FittedBox(
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 20, color: Colors.black),
+            ),
+          ),
+          onPressed: onClicked,
         ),
-        onPressed: onClicked,
       );
 }
 
@@ -57,12 +60,12 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            title,
+            title + ":",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),

@@ -14,7 +14,7 @@ class _FeedState extends State<Feed> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.cyanAccent.shade100,
       appBar: AppBar(
         title: const Text('Home'),
         backgroundColor: Colors.cyan,
@@ -111,7 +111,7 @@ class _FeedState extends State<Feed> {
                                 width: MediaQuery.of(context).size.width,
                                 margin: EdgeInsets.symmetric(horizontal: 5.0),
                                 decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 241, 199)),
+                                    color: Color.fromARGB(255, 108, 218, 231)),
                                 child: Text(
                                   'there are no notices',
                                   style: TextStyle(fontSize: 16.0),
@@ -132,7 +132,7 @@ class _FeedState extends State<Feed> {
               //   color: Color.fromARGB(255, 231, 228, 207),
               // ),
               Card(
-                color: Colors.green,
+                color: Colors.cyanAccent,
                 child: Container(
                   width: double.infinity,
                   child: DataTable(
@@ -145,7 +145,7 @@ class _FeedState extends State<Feed> {
                       ),
                       DataColumn(
                         label: Text(
-                          'Purpose',
+                          'Visitor Type',
                           style: TextStyle(fontStyle: FontStyle.italic),
                         ),
                       ),
@@ -159,16 +159,16 @@ class _FeedState extends State<Feed> {
                     rows: const <DataRow>[
                       DataRow(
                         cells: <DataCell>[
-                          DataCell(Text('Sarah')),
-                          DataCell(Text('19')),
-                          DataCell(Text('Student')),
+                          DataCell(Text('Nero')),
+                          DataCell(Text('Other')),
+                          DataCell(Text('Accepted')),
                         ],
                       ),
                       DataRow(
                         cells: <DataCell>[
                           DataCell(Text('Janine')),
-                          DataCell(Text('43')),
-                          DataCell(Text('Professor')),
+                          DataCell(Text('HouseKeeper')),
+                          DataCell(Text('Accepted')),
                         ],
                       ),
                     ],

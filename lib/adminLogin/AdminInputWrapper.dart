@@ -65,6 +65,7 @@ class _InputWrapperState extends State<InputWrapper> {
                   ),
                   child: TextField(
                     controller: _passwordController,
+                    obscureText: true,
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       errorText:

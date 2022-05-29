@@ -68,7 +68,7 @@ class _BillingScreenState extends State<BillingScreen> {
     final makePayment = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.blueAccent,
+      color: Colors.redAccent,
       child: MaterialButton(
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
@@ -83,7 +83,7 @@ class _BillingScreenState extends State<BillingScreen> {
     final downloadReceipt = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Colors.blueAccent,
+      color: Colors.redAccent,
       child: MaterialButton(
           padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
@@ -96,8 +96,9 @@ class _BillingScreenState extends State<BillingScreen> {
           )),
     );
     return Scaffold(
+      backgroundColor: Colors.red.shade100,
       appBar: AppBar(
-        backgroundColor: Colors.purple,
+        backgroundColor: Colors.red,
         title: const Text('Maintenance and receipt'),
       ),
       body: Center(

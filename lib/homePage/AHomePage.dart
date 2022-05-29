@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import '../screens/billing/ABilling.dart';
+import '../screens/billing/ANotice.dart';
 import '../screens/booking/Abooking.dart';
 import '../screens/feed/Afeed.dart';
 
@@ -13,8 +13,8 @@ class AHomepage extends StatefulWidget {
 }
 
 class _AHomepageState extends State<AHomepage> {
-  final List _items = [AFeed(), ABooking(), ABilling()];
-  final List _labelName = ['Home', 'Book', 'Bill'];
+  final List _items = [AFeed(), ABooking(), ANotice()];
+  final List _labelName = ['Home', 'Amenities', 'Notice'];
   final List _icons = [Icons.home, Icons.book, Icons.receipt];
   int _currentIndex = 0;
   final PageController _pageController = PageController();
@@ -22,6 +22,7 @@ class _AHomepageState extends State<AHomepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+          // backgroundColor: Colors.tra,
           unselectedItemColor: Colors.grey,
           selectedItemColor: (Colors.blue),
           currentIndex: _currentIndex,
@@ -49,7 +50,7 @@ class _AHomepageState extends State<AHomepage> {
           // Container(),
           AFeed(),
           ABooking(),
-          ABilling(),
+          ANotice(),
         ],
       ),
     );
