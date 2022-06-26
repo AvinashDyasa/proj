@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     // ignore: prefer_const_constructors
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: AHomepage(),
     );
   }
 }
